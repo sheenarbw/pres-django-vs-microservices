@@ -1,49 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>Microservices versus Django</title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/moon.css" />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Microservices versus Django</h1>
+          <h2>patterns and antipatterns</h2>
+        </section>
 
-		<script src="js/reveal.js"></script>
+        <section>
+          <h2>Me :)</h2>
+          <img src="images/umuzi.png" height="100" style="margin-right:100;" />
+          <a
+            href="https://www.codementor.io/freelance-developers/python?utm_source=certified_badge&referral=sheena-kvo1e6ewh"
+            rel="noopener"
+            ><img src="https://assets.codementor.io/cmx-dev-badge.svg"
+          /></a>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+          <table>
+            <tr>
+              <td></td>
+              <td>
+                <ul>
+                  <li>Been coding for over 10 years</li>
+                  <li>I heart Python</li>
+                  <li>Working at Umuzi</li>
+                  <li>Have my own small dev house</li>
+                  <li>
+                    <a
+                      href="https://www.codementor.io/sheena?referral=sheena-kvo1e6ewh"
+                      >CodementorX</a
+                    >
+                    developer and writer
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+
+          <a href="mailto:sheena.oconnell@umuz.org">
+            sheena.oconnell@umuz.org
+          </a>
+        </section>
+
+        <section>
+          <h2>Contents</h2>
+          <ul>
+            <li>What's Django?</li>
+            <li>What are Microservices?</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>What's Django</h2>
+            <ul>
+              <li>Python web framework</li>
+              <li>Batteries Included</li>
+              <li>Opinionated</li>
+              <li>Secure, scalable, fast</li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/pulse/top-10-sites-built-django-framework-vladimir-bogdanov"
+                  >Trusted by industry</a
+                >
+              </li>
+            </ul>
+          </section>
+          <section>
+            <img src="images/django anatomy 1.png" />
+          </section>
+          <section>
+            <img src="images/django anatomy 2.png" />
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>What are Microservices</h2>
+            besides fashionable?
+          </section>
+
+          <section>
+            <h2>Let's imagine...Webflix</h2>
+            You have an application that handles
+            <ul>
+              <li>distributing large volumes of videos</li>
+              <li>authentication, authorization</li>
+              <li>Managing customer information</li>
+              <li>communicating with customer</li>
+              <li>keeping track of payments and subscriptions</li>
+              <li>keeping track of who has seen which video</li>
+              <li>making recommendations</li>
+              <li>...and a whole lot more</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="images/webflix1.png" />
+          </section>
+
+          <section>
+            <ul>
+              <li>Each service is its own application</li>
+              <li>Can be different languages</li>
+              <li>Can have different databases</li>
+              <li>communication can be handled in different ways</li>
+              <li>updated independently</li>
+              <li>scaled independently</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="images/webflix-signups.png" />
+          </section>
+
+          <section>
+            Linkz
+            <a
+              href="https://www.codementor.io/sheena/hello-microservice-deployment-part-1-docker-kw9ejpd9o?referral=sheena-kvo1e6ewh"
+              >Hello Microservices deployment tutorial</a
+            >
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>
+              Real life microservices
+            </h2>
+
+            <img src="images/amazon and netflix.png" height="250" />
+            <a href="https://www.appcentrica.com/the-rise-of-microservices/"
+              >https://www.appcentrica.com/the-rise-of-microservices/</a
+            >
+          </section>
+          <section>
+            <h2>Why do this to yourself?</h2>
+            <ul>
+              <li>Lots of independent teams</li>
+              <li>Need independent and rapid scaling of compute resources</li>
+              <li>Rapid deployment and rollback of small changes</li>
+              <li>helps to enforce loose coupling</li>
+              <li>self healing</li>
+              <li>it's fashionable</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>(some) Pitfalls</h2>
+            <ul>
+              <li>NEED CI/CD to be done well</li>
+              <li>
+                networks aren't perfect: messages get dropped, delayed, replayed
+              </li>
+              <li>unit testing gets tricky. Mock all the things</li>
+              <li>integration testing becomes tricky</li>
+              <li>saturation testing becomes necessary</li>
+              <li>Observability is hard</li>
+              <li>
+                more distributed and complex system => more time spent debugging
+                production system (== technical debt)
+              </li>
+              <li>Hard to know effect of simultaneous faults</li>
+            </ul>
+          </section>
+        </section>
+        <section></section>
+        <section>
+          <h2>
+            Patterns versus antipatterns
+          </h2>
+          <section>Monolithic data</section>
+          <section>Shared code/libraries</section>
+
+          <section>
+            anemic services as part of their daily workflows, they do not have
+            to figure out how to run other services (upstream or downstream) on
+            their laptops
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
