@@ -33,16 +33,18 @@
         <section>
           <h1>Microservices versus Django</h1>
           <h2>patterns and antipatterns</h2>
+
+          <a href="https://sheenarbw.github.io/pres-django-vs-microservices/">
+            https://sheenarbw.github.io/pres-django-vs-microservices/
+          </a>
         </section>
 
         <section>
           <h2>Me :)</h2>
-          <img src="images/umuzi.png" height="100" style="margin-right:100;" />
-          <a
-            href="https://www.codementor.io/freelance-developers/python?utm_source=certified_badge&referral=sheena-kvo1e6ewh"
-            rel="noopener"
-            ><img src="https://assets.codementor.io/cmx-dev-badge.svg"
-          /></a>
+
+          <a href="mailto:sheena.oconnell@umuzi.org">
+            sheena.oconnell@umuzi.org
+          </a>
 
           <table>
             <tr>
@@ -65,9 +67,20 @@
             </tr>
           </table>
 
-          <a href="mailto:sheena.oconnell@umuz.org">
-            sheena.oconnell@umuz.org
-          </a>
+          <div style="float: center">
+            <img src="images/umuzi.png" height="75" style="margin-right:100;" />
+            <a
+              href="https://www.codementor.io/freelance-developers/python?utm_source=certified_badge&referral=sheena-kvo1e6ewh"
+              rel="noopener"
+              ><img
+                src="https://assets.codementor.io/cmx-dev-badge.svg"
+                height="75"
+            /></a>
+
+            <a href="mailto:sheena@prelude.tech">
+              <img src="images/Color logo with background.png" height="75" />
+            </a>
+          </div>
         </section>
 
         <section>
@@ -75,6 +88,8 @@
           <ul>
             <li>What's Django?</li>
             <li>What are Microservices?</li>
+            <li>Pros and pitfalls</li>
+            <li>A few antipatterns</li>
           </ul>
         </section>
 
@@ -141,14 +156,6 @@
           <section>
             <img src="images/webflix-signups.png" />
           </section>
-
-          <section>
-            Linkz
-            <a
-              href="https://www.codementor.io/sheena/hello-microservice-deployment-part-1-docker-kw9ejpd9o?referral=sheena-kvo1e6ewh"
-              >Hello Microservices deployment tutorial</a
-            >
-          </section>
         </section>
         <section>
           <section>
@@ -169,7 +176,7 @@
               <li>Rapid deployment and rollback of small changes</li>
               <li>helps to enforce loose coupling</li>
               <li>self healing</li>
-              <li>it's fashionable</li>
+              <li>make you 10% cooler</li>
             </ul>
           </section>
 
@@ -177,12 +184,12 @@
             <h2>(some) Pitfalls</h2>
             <ul>
               <li>NEED CI/CD to be done well</li>
-              <li>
-                networks aren't perfect: messages get dropped, delayed, replayed
-              </li>
               <li>unit testing gets tricky. Mock all the things</li>
               <li>integration testing becomes tricky</li>
               <li>saturation testing becomes necessary</li>
+              <li>
+                networks aren't perfect: messages get dropped, delayed, replayed
+              </li>
               <li>Observability is hard</li>
               <li>
                 more distributed and complex system => more time spent debugging
@@ -192,19 +199,68 @@
             </ul>
           </section>
         </section>
-        <section></section>
         <section>
-          <h2>
-            Patterns versus antipatterns
-          </h2>
-          <section>Monolithic data</section>
-          <section>Shared code/libraries</section>
+          <section>
+            <h2>
+              A few antipatterns
+            </h2>
+          </section>
+          <section>
+            <h2>
+              Monolithic data
+            </h2>
+
+            <img src="images/monolithic data.png" />
+          </section>
 
           <section>
-            anemic services as part of their daily workflows, they do not have
-            to figure out how to run other services (upstream or downstream) on
-            their laptops
+            <h2>
+              Better than monolithic data
+            </h2>
+
+            <img src="images/monolithic data2.png" />
           </section>
+
+          <section>
+            <h2>
+              Shared code/libraries
+            </h2>
+
+            <img src="images/shared-lib.png" />
+          </section>
+
+          <section>
+            <h2>Anaemic services</h2>
+            <img src="images/anemic.png" />
+          </section>
+
+          <section>
+            <h2>
+              Frankenstein's (Agile) monster
+            </h2>
+            <img src="images/anarchy.png" />
+          </section>
+        </section>
+
+        <section>
+          <h2>
+            &lt/PRESENTATION>
+          </h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.codementor.io/sheena/hello-microservice-deployment-part-1-docker-kw9ejpd9o?referral=sheena-kvo1e6ewh"
+                >Hello Microservices deployment tutorial</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sheenarbw.github.io/pres-django-vs-microservices/"
+              >
+                https://sheenarbw.github.io/pres-django-vs-microservices/
+              </a>
+            </li>
+          </ul>
         </section>
       </div>
     </div>

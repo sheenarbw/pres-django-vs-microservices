@@ -1,0 +1,63 @@
+Microservice anti-patterns explained through Django
+
+Often times, services are decomposed too granularly and are not really separate, so they end up having to be deployed, scaled and maintained together. anemic services or unrealistic single django-app to micro service conversion
+
+Monalithic data => coupling
+ Microsoft's SQL Server, Oracle, and DB2 data stores mainly because their licensing models do not lend themselves easily to have a database per service implemented in the wild.
+data/schema changes.
+
+Django Project - inside the project you have apps - each app has models
+You can link different apps to different databases but the default behavior is to use only one db and let Django handle namespaces
+One codebase. We are all adults here. => Loose coupling between apps is not guarenteed.
+Scaling is an issue
+
+architecture resembles the team
+indipendently scaling can be done... sortof
+
+can specialized teams independently build and deploy software that is within their scope of responsibility?
+
+Microservices are all about:
+- scale of processing resources
+- scale of organisation
+- moar independence and faster deploy times - accelerate the page of change (=> CI/CD + testing)
+
+CI/CD and testing
+monolith:
+- CI/CD might nt even be needed (but it's always a nice thing)
+- unit tests
+- integration tests
+
+ as part of their daily workflows, they do not have to figure out how to run other services (upstream or downstream) on their laptops
+
+Using this test, an organization can avoid ending up in a situation where a developer has to work across multiple microservices, concerning themselves with differences in versions of third-party libraries, and dealing with the separate deployment of each microservice for every change. Likewise, it also avoids the common anti-pattern where one goes from a single monolith to a large number of anemic CRUD services overnight.
+
+Testing stratergy is a huge friggin deal
+
+o11y... observability.  ability to ask new questions of your system's operational state, without deploying more code
+( this ties into some real fundamentals like proper error messaging and use of debuggers)
+- graph all the things? Find nothing. Die unfulfilled
+- signal to noise ratio is a hard thing to optimise
+Sofware is opaque by default
+
+10 x developer versus the 100x team
+
+- metacaphs law => more connections => more potential for awesomeness. And awesome bugs
+
+Fault tolerance in netflix:  Fault tolerance is dependent on resilience to combinations of faults though, and attempts at simulating all combinations of just four concurrent faults brought the running time of a model check up to 12 weeks. Because of this combinatorial nature of fault tolerance search, attempts at model checking anything more than 4 concurrent faults very quickly approach Heat Death Of The Universe type numbers. Attempts have been made at model checking subsets of the gestalt system, but this is still expensive, and can gloss over failures that stem from those systems' integration.
+
+
+
+As our systems become more distributed and more complex, the amount of time devs spend debugging one-off production issues could grow to eclipse actual productive development time
+
+Microservices as a form of technical debt
+
+
+Patterns and antipatters:
+- shared database
+- shared code (pip install my_django-app)
+
+
+
+- move to a structured logging approach across microservices. A base image with everything built in
+- keep track of all major events associated with a single request through use of global request objects or other threadlocals
+
